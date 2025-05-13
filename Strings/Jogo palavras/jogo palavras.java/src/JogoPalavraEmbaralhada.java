@@ -3,12 +3,9 @@ import java.util.*;
 import java.util.Base64;
 
 public class JogoPalavraEmbaralhada {
-
-    // Senha verdadeira para desenvolvedor, codificada em Base64. Use esta linha para armazenar a senha cifrada.
-    private static final String SENHA_CIFRADA = "UG93ZGVyQXJjYW5l"; // Base64 de "PowderArcane"
+    private static final String SENHA_CIFRADA = "UG93ZGVyQXJjYW5l"; // Base64 da senha de dev
 
     public static void main(String[] args) {
-        // Obtém o Console, se disponível
         Console console = System.console();
 
         if (console == null) {
@@ -23,8 +20,6 @@ public class JogoPalavraEmbaralhada {
 
         if (resposta.equalsIgnoreCase("s")) {
             System.out.println("\n🔐 Acesso restrito. Digite a senha de desenvolvedor:");
-
-            // Usando Console para ler a senha de forma oculta
             String senhaDigitada = lerSenhaOculta(console);
 
             if (verificaSenha(senhaDigitada)) {
@@ -49,7 +44,6 @@ public class JogoPalavraEmbaralhada {
     }
 
     public static boolean verificaSenha(String senhaDigitada) {
-        // Decodifica a senha cifrada (Base64) e compara com a senha digitada
         String senhaOriginal = new String(Base64.getDecoder().decode(SENHA_CIFRADA));
         return senhaDigitada.equals(senhaOriginal);
     }
